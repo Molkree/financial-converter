@@ -180,7 +180,7 @@ def uniquify_rows[T: BaseRow](rows: dict[date, list[T]]) -> list[T]:
         for transaction in transactions:
             hash_groups[transaction_date][hash(transaction)].append(transaction)
 
-    for transaction_date, day_groups in hash_groups.items():
+    for day_groups in hash_groups.values():
         for hash_group in day_groups.values():
             if len(hash_group) > 1:
                 for i, transaction in enumerate(hash_group[::-1], start=1):

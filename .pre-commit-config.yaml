@@ -2,6 +2,9 @@ default_install_hook_types:
   - pre-commit
   - commit-msg
 
+default_language_version:
+  python: python3.14
+
 repos:
   - repo: https://github.com/compilerla/conventional-pre-commit
     rev: v4.4.0
@@ -50,10 +53,17 @@ repos:
     rev: 7.3.0
     hooks:
       - id: flake8
-        additional_dependencies: [ pep8-naming ]
+        additional_dependencies:
+          - flake8-bugbear==25.11.29
+          - Flake8-pyproject==1.2.4
+          - pep8-naming==0.15.1
 
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.20.2
     hooks:
       - id: mypy
         args: [ --strict ]
+        additional_dependencies:
+          - types-openpyxl==3.1.5.20260408
+          - pydantic-extra-types[pycountry]==2.11.1
+          - pydantic==2.13.3
