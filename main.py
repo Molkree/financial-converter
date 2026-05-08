@@ -18,14 +18,16 @@ BATCH_SIZE = 400
 
 class BaseRow(BaseModel, ABC):
     transaction_date: date
-    description: str
+    description: str | None
     to_account: str
     to_amount: Decimal
     to_currency_code: ISO4217
 
     @field_validator("description", mode="after")
     @classmethod
-    def convert_newlines_for_markdown(cls, v: str) -> str:
+    def convert_newlines_for_markdown(cls, v: str | None) -> str | None:
+        if not v:
+            return v
         return v.replace("\n", "  ").strip()
 
     @classmethod
@@ -155,8 +157,8 @@ def process_sheet(
     """Generic sheet processor that handles grouping, deduplication, and CSV export."""
     rows_by_date: defaultdict[date, list[BaseRow]] = defaultdict(list)
     for row in worksheet.iter_rows(min_row=3, values_only=True):
-        excel_row = row_class.from_excel_row(row)
-        rows_by_date[excel_row.transaction_date].append(excel_row)
+        parsed_row = row_class.from_excel_row(row)
+        rows_by_date[parsed_row.transaction_date].append(parsed_row)
     converted_rows = [row.to_tuple() for row in uniquify_rows(rows_by_date)]
 
     csv_index = 1
@@ -184,10 +186,10 @@ def uniquify_rows[T: BaseRow](rows: dict[date, list[T]]) -> list[T]:
         for hash_group in day_groups.values():
             if len(hash_group) > 1:
                 for i, transaction in enumerate(hash_group[::-1], start=1):
-                    append_str = f"Transaction {i}"
-                    if transaction.description:
-                        append_str = f"  {append_str}"
-                    transaction.description += append_str
+                    if not transaction.description:
+                        transaction.description = f"Transaction {i}"
+                    else:
+                        transaction.description += f"  Transaction {i}"
 
     return [
         transaction for transactions in rows.values() for transaction in transactions
