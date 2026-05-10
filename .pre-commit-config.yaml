@@ -67,6 +67,8 @@ repos:
       - id: mypy
         args: [--strict]
         additional_dependencies:
-          - types-openpyxl==3.1.5.20260408
+          - httpx==0.28.1
           - pydantic-extra-types[pycountry]==2.11.1
           - pydantic==2.13.3
+          - typer==0.25.1
+          - types-openpyxl==3.1.5.20260408
