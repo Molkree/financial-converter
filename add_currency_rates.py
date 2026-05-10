@@ -1,7 +1,3 @@
-# POST http://localhost/api/v1/exchange-rates
-# {"from":"GEL","to":"GBP","rate":"0.273067366","date":"2026-05-08"}
-# {"from":"GEL","to":"RUB","rate":"27.7893567","date":"2026-05-08"}
-
 from datetime import date, datetime, timedelta
 from decimal import Decimal
 
