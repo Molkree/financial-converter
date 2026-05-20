@@ -60,6 +60,7 @@ repos:
           - flake8-bugbear==25.11.29
           - Flake8-pyproject==1.2.4
           - pep8-naming==0.15.1
+        language: python
 
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v2.0.0
@@ -72,3 +73,4 @@ repos:
           - pydantic==2.13.3
           - typer==0.25.1
           - types-openpyxl==3.1.5.20260408
+        language: python
