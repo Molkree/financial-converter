@@ -3,10 +3,10 @@ from datetime import date, datetime, timedelta
 from decimal import Decimal
 from enum import StrEnum
 
-import httpx
+import httpx2
 import pandas as pd
 import streamlit as st
-from httpx import QueryParams
+from httpx2 import QueryParams
 from pydantic import BaseModel, SecretStr, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -55,7 +55,7 @@ def get_all_accounts(
     params = None
     if account_type is not None:
         params = QueryParams({"type": account_type})
-    response = httpx.get(url, headers=headers, params=params)
+    response = httpx2.get(url, headers=headers, params=params)
     response.raise_for_status()
     return AccountsArray.model_validate_json(response.content)
 
@@ -93,7 +93,7 @@ def get_net_worth_data(
         start_date=start_date.strftime("%Y%m%d"),
         end_date=end_date.strftime("%Y%m%d"),
     )
-    response = httpx.get(url, headers=headers, timeout=30)
+    response = httpx2.get(url, headers=headers, timeout=30)
     response.raise_for_status()
     return NetWorthData.model_validate_json(response.content)
 

@@ -68,7 +68,7 @@ repos:
       - id: mypy
         args: [--strict]
         additional_dependencies:
-          - httpx==0.28.1
+          - httpx2==2.3.0
           - pandas-stubs==3.0.3.260530
           - pydantic-extra-types[pycountry]==2.11.1
           - pydantic-settings==2.14.1

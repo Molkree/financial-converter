@@ -1,7 +1,7 @@
 from datetime import date, datetime, timedelta
 from decimal import Decimal
 
-import httpx
+import httpx2
 import typer
 from pydantic import BaseModel, Field
 from pydantic_extra_types.currency_code import ISO4217
@@ -28,7 +28,7 @@ class CurrencyRate(BaseModel):
 
 def get_currency_rates(target_date: date) -> dict[ISO4217, CurrencyRate]:
     url = BANK_URL.format(target_date=target_date)
-    response = httpx.get(url)
+    response = httpx2.get(url)
     response.raise_for_status()
     data = response.json()
     rates: dict[ISO4217, CurrencyRate] = {}
@@ -48,7 +48,7 @@ def add_currency_rates(token: str, start_dt: datetime, end_dt: datetime) -> None
         for code, rate in rates.items():
             normalized_rate = str(rate.rate / rate.quantity)
             print(f"{code}: {normalized_rate}")
-            httpx.post(
+            httpx2.post(
                 FIREFLY_API_URL,
                 headers={"authorization": f"Bearer {token}"},
                 json={
