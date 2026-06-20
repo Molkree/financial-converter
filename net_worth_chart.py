@@ -99,8 +99,9 @@ def get_net_worth_data(
 
 
 def build_chart_frame(data: NetWorthData) -> pd.DataFrame:
-    df = pd.DataFrame({"date": data.labels, "total": data.datasets[0].data})
-    df["total"] = df["total"].astype(float)
+    df = pd.DataFrame({"Date": data.labels, "Total": data.datasets[0].data})
+    df["Date"] = pd.to_datetime(df["Date"])
+    df["Total"] = df["Total"].astype(float)
     return df
 
 
@@ -148,7 +149,7 @@ def main() -> None:
     chart_totals = build_chart_frame(net_worth_data)
 
     st.subheader("Net worth")
-    st.line_chart(chart_totals, x="date", y="total")
+    st.line_chart(chart_totals, x="Date", y="Total")
 
     with st.expander("Raw data"):
         st.write(chart_totals)
