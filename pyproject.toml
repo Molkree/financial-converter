@@ -10,7 +10,7 @@ dependencies = [
     "pandas-stubs==3.0.3.260530",
     "pandas==3.0.3",
     "pydantic-extra-types[pycountry]==2.11.1",
-    "pydantic-settings==2.14.1",
+    "pydantic-settings==2.14.2",
     "pydantic==2.13.4",
     "streamlit==1.58.0",
     "typer==0.26.7",
