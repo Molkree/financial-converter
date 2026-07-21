@@ -12,7 +12,7 @@ dependencies = [
     "pydantic-extra-types[pycountry]==2.11.1",
     "pydantic-settings==2.14.2",
     "pydantic==2.13.4",
-    "streamlit==1.59.1",
+    "streamlit==1.59.2",
     "typer==0.26.8",
 ]
 
