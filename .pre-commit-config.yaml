@@ -5,8 +5,9 @@ default_install_hook_types:
 default_language_version:
   python: python3.14
 
-auto_update:
+update:
   cooldown_days: 7
+  freeze: true
 
 repos:
   - repo: https://github.com/compilerla/conventional-pre-commit
