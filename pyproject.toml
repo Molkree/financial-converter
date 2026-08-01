@@ -27,7 +27,7 @@ dev = [
     "mypy==2.3.0",
     "pep8-naming==0.15.1",
     "prek==0.4.11",
-    "types-openpyxl==3.1.5.20260518",
+    "types-openpyxl==3.1.5.20260724",
 ]
 
 [tool.uv]
