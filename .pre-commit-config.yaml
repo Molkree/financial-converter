@@ -76,7 +76,7 @@ repos:
           - pydantic==2.13.4
           - streamlit==1.60.0
           - typer==0.27.0
-          - types-openpyxl==3.1.5.20260518
+          - types-openpyxl==3.1.5.20260724
         language: python
 
   - repo: https://github.com/astral-sh/uv-pre-commit
