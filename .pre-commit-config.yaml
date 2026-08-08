@@ -70,7 +70,7 @@ repos:
         args: [--strict]
         additional_dependencies:
           - httpx2==2.9.1
-          - pandas-stubs==3.0.3.260530
+          - pandas-stubs==3.0.5.260730
           - pydantic-extra-types[pycountry]==2.11.1
           - pydantic-settings==2.14.2
           - pydantic==2.13.4
@@ -80,6 +80,6 @@ repos:
         language: python
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: e3e6ef7d9bda544b2e795782dbd7d2a4fbd7eb6d  # frozen: 0.11.32
+    rev: 8ff2449591c8de025b17661ba76d60237a1ae62b  # frozen: 0.12.1
     hooks:
       - id: uv-lock
