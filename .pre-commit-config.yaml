@@ -72,14 +72,14 @@ repos:
           - httpx2==2.9.1
           - pandas-stubs==3.0.5.260730
           - pydantic-extra-types[pycountry]==2.11.1
-          - pydantic-settings==2.14.2
+          - pydantic-settings==2.15.0
           - pydantic==2.13.4
-          - streamlit==1.60.0
-          - typer==0.27.0
-          - types-openpyxl==3.1.5.20260724
+          - streamlit==1.61.1
+          - typer==0.27.1
+          - types-openpyxl==3.1.5.20260807
         language: python
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 8ff2449591c8de025b17661ba76d60237a1ae62b  # frozen: 0.12.1
+    rev: 8d582f54b8e4cc5a61a85eeed1f54bbdb1e294fc  # frozen: 0.12.3
     hooks:
       - id: uv-lock
