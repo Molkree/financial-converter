@@ -156,7 +156,8 @@ def process_sheet(
 ) -> None:
     """Generic sheet processor that handles grouping, deduplication, and CSV export."""
     rows_by_date: defaultdict[date, list[BaseRow]] = defaultdict(list)
-    for row in worksheet.iter_rows(min_row=3, values_only=True):
+    rows = list(worksheet.iter_rows(min_row=3, values_only=True))
+    for row in reversed(rows):
         parsed_row = row_class.from_excel_row(row)
         rows_by_date[parsed_row.transaction_date].append(parsed_row)
     converted_rows = [row.to_tuple() for row in uniquify_rows(rows_by_date)]
