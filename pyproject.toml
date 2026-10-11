@@ -12,21 +12,21 @@ dependencies = [
     "pydantic-extra-types[pycountry]==2.11.1",
     "pydantic-settings==2.15.0",
     "pydantic==2.13.5",
-    "streamlit==1.64.0",
+    "streamlit==1.65.0",
     "typer==0.27.2",
 ]
 
 [dependency-groups]
-build = ["uv==0.12.19"]
+build = ["uv==0.12.23"]
 dev = [
     "black==26.5.1",
-    "flake8-bugbear==26.9.9",
+    "flake8-bugbear==26.9.30",
     "Flake8-pyproject==1.2.4",
     "flake8==7.4.1",
-    "isort==9.0.1",
-    "mypy==2.3.1",
+    "isort==9.0.2",
+    "mypy==2.4.0",
     "pep8-naming==0.15.1",
-    "prek==0.5.3",
+    "prek==0.5.4",
     "types-openpyxl==3.1.5.20260827",
 ]
 
