@@ -12,7 +12,7 @@ dependencies = [
     "pydantic-extra-types[pycountry]==2.11.1",
     "pydantic-settings==2.15.0",
     "pydantic==2.14.0",
-    "streamlit==1.65.0",
+    "streamlit[performance]==1.66.1",
     "typer==0.27.3",
 ]
 
@@ -34,6 +34,7 @@ dev = [
 exclude-newer = "1 week"
 
 [tool.uv.exclude-newer-package]
+streamlit = "2026-10-21T17:02:58.806Z"
 uv = "2026-10-22T01:32:33.910Z"
 
 [tool.flake8]
