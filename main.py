@@ -167,7 +167,7 @@ def process_sheet(
         csv_name = f"{sheet_name.lower()}_{csv_index}.csv"
         csv_index += 1
 
-        with open(csv_name, mode="w", encoding="utf-8", newline="") as csv_file:
+        with open(csv_name, mode="w", newline="") as csv_file:
             writer = csv.writer(csv_file)
             writer.writerow(headers)
             writer.writerows(batch)
@@ -192,9 +192,7 @@ def uniquify_rows[T: BaseRow](rows: dict[date, list[T]]) -> list[T]:
                     else:
                         transaction.description += f"  Transaction {i}"
 
-    return [
-        transaction for transactions in rows.values() for transaction in transactions
-    ]
+    return [*transactions for transactions in rows.values()]
 
 
 if __name__ == "__main__":
