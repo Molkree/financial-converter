@@ -5,12 +5,12 @@ description = "Converter from Money Manager Android app export to Firefly III fo
 readme = "README.md"
 requires-python = ">=3.15"
 dependencies = [
-    "httpx2==2.13.1",
+    "httpx2==2.16.0",
     "openpyxl==3.1.5",
     "pandas-stubs==3.0.5.260914",
     "pandas==3.0.6",
     "pydantic-extra-types[pycountry]==2.11.1",
-    "pydantic-settings==2.16.0",
+    "pydantic-settings==2.16.1",
     "pydantic==2.14.1",
     "streamlit[performance]==1.66.1",
     "typer==0.27.3",
@@ -32,10 +32,6 @@ dev = [
 
 [tool.uv]
 exclude-newer = "1 week"
-
-[tool.uv.exclude-newer-package]
-streamlit = "2026-10-21T17:02:58.806Z"
-uv = "2026-10-22T01:32:33.910Z"
 
 [tool.flake8]
 max-line-length = 80
