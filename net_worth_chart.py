@@ -7,7 +7,7 @@ import httpx2
 import pandas as pd
 import streamlit as st
 from httpx2 import QueryParams
-from pydantic import BaseModel, SecretStr, field_validator
+from pydantic import BaseModel, SecretStr, ValidationError, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 st.set_page_config(layout="wide")
@@ -110,7 +110,7 @@ def main() -> None:
 
     try:
         all_asset_accounts = get_all_accounts(ShortAccountTypeProperty.ASSET)
-    except Exception as exc:
+    except (httpx2.HTTPError, ValidationError) as exc:
         st.error(f"Failed to load accounts: {exc}")
         st.stop()
 
@@ -142,7 +142,7 @@ def main() -> None:
 
     try:
         net_worth_data = get_net_worth_data(selected_accounts, start_date, end_date)
-    except Exception as exc:
+    except (httpx2.HTTPError, ValidationError) as exc:
         st.error(f"Failed to fetch net worth data: {exc}")
         st.stop()
 
