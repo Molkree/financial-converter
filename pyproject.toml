@@ -33,6 +33,26 @@ target-version = "py315"
 
 [tool.ruff.lint]
 ignore = ["E203", "E701"]
+select = [
+    # pycodestyle
+    "E", "W",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+    # flake8-bandit
+    "S",
+    # pep8-naming
+    "N",
+    # Ruff
+    "RUF",
+]
 
 [tool.mypy]
 plugins = ['pydantic.mypy']

@@ -163,7 +163,7 @@ def process_sheet(
     converted_rows = [row.to_tuple() for row in uniquify_rows(rows_by_date)]
 
     csv_index = 1
-    for batch in batched(converted_rows, BATCH_SIZE):
+    for batch in batched(converted_rows, BATCH_SIZE, strict=False):
         csv_name = f"{sheet_name.lower()}_{csv_index}.csv"
         csv_index += 1
 
