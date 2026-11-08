@@ -11,7 +11,7 @@ update:
 
 repos:
   - repo: https://github.com/compilerla/conventional-pre-commit
-    rev: 91ab4bf57e58b32adf1a122681f6ebe164d081c8  # frozen: v4.4.0
+    rev: 33b50eb042bee26eac0ee96ad84aa9c1b4dccdd8  # frozen: v4.5.0
     hooks:
       - id: conventional-pre-commit
         stages: [commit-msg]
@@ -54,32 +54,32 @@ repos:
           - --remove-all-unused-imports
 
   - repo: https://github.com/pycqa/flake8
-    rev: 7eccf20b526fe4f2230bf9afeeef2fc9f97faf8d  # frozen: 7.4.1
+    rev: 1c7fec1973ed3a7c192dbe1e96906fbbd1dbe49e  # frozen: 7.5.0
     hooks:
       - id: flake8
         additional_dependencies:
-          - flake8-bugbear==26.9.30
+          - flake8-bugbear==26.10.27
           - Flake8-pyproject==1.2.4
           - pep8-naming==0.15.1
         language: python
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: 2834ec6639549dd6796205c8f011dedcd587288b  # frozen: v2.4.0
+    rev: ad26ebfa797fcb9b8f83275937c1c1d6e126719c  # frozen: v2.4.1
     hooks:
       - id: mypy
         args: [--strict]
         additional_dependencies:
           - httpx2==2.16.0
-          - pandas-stubs==3.0.5.260914
+          - pandas-stubs==3.1.0.261029
           - pydantic-extra-types[pycountry]==2.11.1
-          - pydantic-settings==2.16.1
-          - pydantic==2.14.1
+          - pydantic-settings==2.16.2
+          - pydantic==2.14.2
           - streamlit[performance]==1.66.1
           - typer==0.27.3
           - types-openpyxl==3.1.5.20261017
         language: python
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: eeca16c54e09b4d9a848259e46bae14737944348  # frozen: 0.13.5
+    rev: 46787482b9fb2003c56e0f7592e312ef381829d9  # frozen: 0.13.6
     hooks:
       - id: uv-lock
