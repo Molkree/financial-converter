@@ -52,6 +52,8 @@ select = [
     "N",
     # Ruff
     "RUF",
+    # flake8-import-conventions
+    "ICN",
 ]
 
 [tool.mypy]
