@@ -28,7 +28,7 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: 25bcf95026b96e2dd3c0aec3090c3d6ef6ca2e6c  # frozen: v0.17.3
+    rev: c0f278f1254ccc8fb09676bcdb8d847e7db493e5  # frozen: v0.17.4
     hooks:
       - id: ruff-check
         args: [--fix, --unsafe-fixes]
@@ -44,13 +44,13 @@ repos:
           - pandas-stubs==3.1.0.261029
           - pydantic-extra-types[pycountry]==2.11.1
           - pydantic-settings==2.16.2
-          - pydantic==2.14.2
-          - streamlit[performance]==1.66.1
-          - typer==0.27.3
+          - pydantic==2.14.3
+          - streamlit[performance]==1.67.0
+          - typer==0.28.0
           - types-openpyxl==3.1.5.20261017
         language: python
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 46787482b9fb2003c56e0f7592e312ef381829d9  # frozen: 0.13.6
+    rev: d1df990f871e616da38bb602a2671d5e840b9989  # frozen: 0.13.7
     hooks:
       - id: uv-lock
